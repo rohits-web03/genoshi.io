@@ -1,11 +1,17 @@
-const App=()=>{
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </>
-  )
-}
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PricingSection from './Components/Pricing/PricingSection';
 
-export default App
+const App: React.FC = () => {
+  return (
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/pricing" element={<PricingSection />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
+
+export default App;
