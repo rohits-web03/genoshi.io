@@ -24,7 +24,7 @@ const ProfileDashboard: React.FC = () => {
 
   const closeAccModal=()=>{
     console.log("closing Acc modal")
-      setItOpen(false);
+      setAccModal(false);
   }
   const openAccModal = () => {
     console.log("opening Acc modal");
@@ -42,15 +42,27 @@ const ProfileDashboard: React.FC = () => {
           <div className='flex flex-col items-center w-[60%]'>
             <div className='flex flex-col justify-center items-center md:w-full bg-white rounded-lg h-[70%] mx-1'>
               <h3 className="text-xl font-semibold mb-1 text-center">Saved Graphs</h3>
-              <SavedGraphsList savedGraphs={savedGraphsData} openModal={openModal} graphIndex={index}/>
+              <SavedGraphsList savedGraphs={savedGraphsData} openModal={openModal} />
             </div>
             <div className='h-[30%] w-full'>
               <UsageMetrics />
             </div>
           </div>
         </div>
-        <GraphDetailsModal graphDetails={savedGraphsData[index]} closeModal={closeModal} isOpen={isOpen}/>
-        <AccountSettingsModal closeModal={closeAccModal} isOpen={accModal}/>
+        {isOpen && (
+        <GraphDetailsModal
+          graphDetails={savedGraphsData[index]}
+          closeModal={closeModal}
+          isOpen={isOpen}
+        />
+      )}
+
+      {accModal && (
+        <AccountSettingsModal
+          closeModal={closeAccModal}
+          isOpen={accModal}
+        />
+      )}
       </div>
   );
 };

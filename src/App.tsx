@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PricingSection from './Pages/PricingSection';
 import ProfileDashboard from './Pages/ProfileDashboard';
 import CreateNewGraph from './Pages/CreateNewGraph';
-import GraphDetailsPage from './Pages/GraphDetailsPage';
-import AccountSettings from './Pages/AccountSettings';
 
 const App: React.FC = () => {
   return (

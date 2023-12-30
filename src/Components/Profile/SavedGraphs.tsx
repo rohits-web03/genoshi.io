@@ -9,11 +9,10 @@ interface SavedGraph {
 interface SavedGraphsProps {
   savedGraphs: SavedGraph[];
   openModal: (value: number) => void;
-  graphIndex: number;
 }
 
 
-const SavedGraphsList: React.FC<SavedGraphsProps> = ({ savedGraphs,openModal,graphIndex }) => {
+const SavedGraphsList: React.FC<SavedGraphsProps> = ({ savedGraphs,openModal }) => {
   return (
     <table className="space-y-4 w-full rounded-lg bg-white h-[90%] pb-0">
       <tbody className='p-4 pb-0'>

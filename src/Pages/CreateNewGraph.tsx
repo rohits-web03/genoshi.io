@@ -2,6 +2,7 @@ import React from 'react';
 
 const CreateNewGraph: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log(e.target)
     // e.preventDefault();
     // Logic for handling form submission goes here
   };
