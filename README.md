@@ -12,36 +12,36 @@ This project contains the required two pages.
 
 After starting the server:
 
-![Home Page](<Genoshi Frontend Internship Test.png>)
+![Home Page](<public/Genoshi Frontend Internship Test.png>)
 
 ### Pricing Page:
 
-![Pricing](<Genoshi Pricing Page.png>)
+![Pricing](<public/Genoshi Pricing Page.png>)
 
-![After selecting a pricing plan](<Genoshi Pricing Page 2.png>)
+![After selecting a pricing plan](<public/Genoshi Pricing Page 2.png>)
 
 ### Profile Pages:
 
 #### Profile Dashboard:
 
-![Profile Dashboard](<Profile Dashboard.png>)
+![Profile Dashboard](<public/Profile Dashboard.png>)
 
 #### Create New Graph
 
-![Create New Graph](<Create New Graph Page.png>)
+![Create New Graph](<public/Create New Graph Page.png>)
 
 #### Account Settings
 
-![Account Settings](<Account Settings.png>)
+![Account Settings](<public/Account Settings.png>)
 
 #### Graph Details
 
 
-![Graph Details](<Graph Details.png>)
+![Graph Details](<public/Graph Details.png>)
 
 #### Graph Preview
 
-![Graph Preview](<Graph Preview Page.png>)
+![Graph Preview](<public/Graph Preview Page.png>)
 
 ### Below are the details of each page:
 
