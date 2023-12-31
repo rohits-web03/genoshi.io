@@ -20,14 +20,15 @@ const CreateNewGraph: React.FC = () => {
 
   return (
     <div className="container mx-auto py-8 h-screen flex flex-col justify-center gap-10 ">
-      <div className="flex justify-center items-center">
-        <h1 className="text-4xl font-bold mb-6 font-inter">Craft Your Insights: Create Graphs with Graff</h1>
+      <div className="flex justify-center items-center p-6">
+        <h1 className="text-4xl font-bold mb-6 font-inter max-sm:mb-0">Craft Your Insights: Create Graphs with Graff</h1>
       </div>
-      <div className="flex justify-center items-center w-full">
-        <form className="w-[80%] bg-gray-100 p-8 rounded-lg shadow-md" onSubmit={handleSubmit}>
-          <div className='flex justify-center gap-12 items-center w-full h-[90%]'>
-            <div className="mb-4 h-[20rem] w-[30%] bg-slate-300 p-4 rounded-xl flex flex-col justify-center items-center">
-              <label htmlFor="fileUpload" className="block text-gray-700 font-bold mb-2">
+      <div className="flex justify-center items-center w-full max-sm:h-[80%] max-sm:mb-8">
+        <form className="w-[80%] bg-gray-100 p-8 rounded-lg shadow-md max-sm:h-full" onSubmit={handleSubmit}>
+          <div className='flex justify-center items-center max-sm:flex-col-reverse max-sm:gap-4 gap-8 w-full h-full '>
+            <div className="max-sm:relative bottom-0 mb-4 max-sm:mb-0 h-[20rem] max-sm:h-[6.5rem] w-[30%] max-sm:w-full
+             bg-slate-300 p-4 rounded-xl flex flex-col justify-center items-center">
+              <label htmlFor="fileUpload" className="text-gray-700 font-bold mb-2">
                 Upload Papers
               </label>
               <input
@@ -36,8 +37,8 @@ const CreateNewGraph: React.FC = () => {
                 className="w-full border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
               />
             </div>
-            <div className='h-[90%] w-[60%]'>
-              <div className="mb-4">
+            <div className='h-[90%] w-[60%] max-sm:h-[90%] max-sm:w-full'>
+              <div className="mb-4 max-sm:w-full">
               <label htmlFor="title" className="block text-gray-700 font-bold mb-2">
                 Graph Title
               </label>

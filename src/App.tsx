@@ -8,7 +8,7 @@ import Home from "./Pages/Home";
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="App">
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
           {/* Route for Pricing Section */}

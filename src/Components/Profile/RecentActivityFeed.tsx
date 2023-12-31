@@ -12,16 +12,25 @@ const recentActivities: Activity[] = [
   { description: 'Saved 3 new papers', timestamp: '2 days ago' },
   { description: 'Edited graph settings', timestamp: '3 days ago' },
   { description: 'Made 5 queries', timestamp: '1 week ago' },
+  { description: 'Deleted a graph', timestamp: '5 hours ago' },
+  { description: 'Uploaded 2 papers', timestamp: '6 hours ago' },
+  { description: 'Shared a graph with user Y', timestamp: '2 days ago' },
+  { description: 'Saved 5 new papers', timestamp: '3 days ago' },
+  { description: 'Edited paper details', timestamp: '4 days ago' },
+  { description: 'Made 8 queries', timestamp: '1 week ago' },
+  { description: 'Added a new collection', timestamp: '8 hours ago' },
+  { description: 'Shared a collection', timestamp: '2 weeks ago' },
+  { description: 'Updated user profile', timestamp: '3 weeks ago' },
 ];
 
 const RecentActivityFeed: React.FC = () => {
   return (
-    <div className="bg-white p-4 pt-6 rounded-md shadow h-full mt-2">
+    <div className="bg-white p-4 pt-6 rounded-md shadow mt-2">
       <div className='flex justify-between'>
         <h2 className="text-2xl font-semibold mb-4">Recent Activity</h2>
         <p className='text-right text-gray-800'>With last 7 days</p>
       </div>
-      <div className='p-4 mt-2 bg-slate-100'>
+      <div className='p-4 bg-slate-100 overflow-y-auto h-[40%] max-sm:h-[55%]'>
         {recentActivities.map((activity, index) => (
           <div key={index} className="flex items-center justify-between p-2 hover:bg-slate-300 rounded-lg">
             <p className="text-md">{activity.description}</p>

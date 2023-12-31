@@ -71,7 +71,7 @@ const AccountSettingsModal: React.FC<Props> = ({closeAccSettings,isAccSettings})
 
   return (
     <div className="fixed inset-0 flex items-center justify-center font-inter bg-black bg-opacity-75 backdrop-blur-sm rounded-lg shadow-lg p-4">
-      <div className="bg-white p-4 rounded-xl h-fit w-[60%] relative">
+      <div className="bg-white p-4 rounded-xl h-fit md:w-[60%] lg:w-[50%] xl:w-[40%] relative">
         <h1 className="flex justify-center items-center text-3xl font-semibold mt-2">Account Settings</h1>
         <button className="bg-slate-300 text-white py-2 px-4 rounded-full mt-2 mr-2 absolute top-3 right-3" onClick={closeAccSettings}>
               <i className="fa-solid fa-xmark rotate-90 text-2xl text-black"></i>

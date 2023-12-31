@@ -37,15 +37,15 @@ const ProfileDashboard: React.FC = () => {
   };
   
   return (
-      <div className="container mx-auto p-2 bg-[#e1e1e1] h-screen w-full">
-        <div className='flex h-full gap-2'>
-          <div className='flex flex-col w-[40%]'>
+      <div className="container mx-auto p-2 bg-[#e1e1e1] h-screen w-full overflow-y-hidden max-md:overflow-y-auto">
+        <div className='flex h-full gap-2 max-md:flex-col '>
+          <div className='flex flex-col w-[40%] h-screen max-md:w-full'>
             <UserProfileDetails openAccSettings={openAccSettingsModal}/>
             <AccountDetails settings={false}/>
             <RecentActivityFeed />
           </div>
-          <div className='flex flex-col items-center w-[60%]'>
-            <div className='flex flex-col justify-center items-center md:w-full bg-white rounded-lg h-[70%] mx-1'>
+          <div className='flex flex-col items-center w-[60%] max-md:w-full'>
+            <div className='flex flex-col justify-center items-center md:w-full bg-white rounded-lg h-[70%] mx-1 max-md:w-full '>
               <h3 className="text-xl font-semibold mb-1 text-center">Saved Graphs</h3>
               <SavedGraphsList savedGraphs={savedGraphsData} openGraphDetails={openGraphDetailsModal} />
             </div>

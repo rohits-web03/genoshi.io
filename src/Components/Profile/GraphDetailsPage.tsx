@@ -42,7 +42,7 @@ const GraphDetailsModal: React.FC<Props> = ({ graphDetails, closeGraphDetails, i
   
   return (
     <div className="fixed inset-0 flex items-center justify-center font-inter bg-black bg-opacity-75 backdrop-blur-sm rounded-lg shadow-lg p-4">
-      <div className="bg-white p-4 rounded-xl h-fit w-[50%] relative">
+      <div className="bg-white p-4 rounded-xl h-fit md:w-[45%] lg:w-[40%] relative">
         <h1 className='flex justify-center items-center text-3xl font-semibold mt-2'>Graph Details</h1>
         <div className='p-6 text-lg pb-0'>
           <div className='flex justify-between'>
