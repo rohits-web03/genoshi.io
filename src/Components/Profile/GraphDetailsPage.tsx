@@ -58,7 +58,7 @@ const GraphDetailsModal: React.FC<Props> = ({ graphDetails, closeGraphDetails, i
             <p className="text-gray-800 mb-2">Created on: {graphDetails.dateCreated}</p>
           </div>
           <div className='flex justify-between'>
-            <p>Papers Shown:</p>
+            <p>Papers Used:</p>
             <div className='flex flex-col gap-1 justify-around items-center'>
               {graphDetails.papers.map((paper)=>(
                   <p className='text-gray-800 mb-1' key={paper}>{paper}</p>

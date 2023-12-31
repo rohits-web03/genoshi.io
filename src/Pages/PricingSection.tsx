@@ -65,13 +65,14 @@ const PricingSection: React.FC = () => {
             <div 
             id={selectedPlan}
             className="mt-8 p-10 border border-blue-500 rounded-lg shadow-lg 
-            md:w-[40%] flex flex-col bg-white justify-center"
+            md:w-[40%] flex flex-col bg-white justify-center relative"
             >
-              <div className='flex justify-between items-center text-2xl'>
+              <div className='flex justify-between items-center text-2xl gap-4'>
                 <h2 className="text-2xl font-semibold text-blue-500 mb-4">
                   Selected Plan: {selectedPlanData.planName}
                 </h2>
                 <button
+                  className='absolute top-4 right-4'
                   onClick={handleUnselect}
                 >
                   <i className="fa-solid fa-xmark bg-slate-600 rounded-full p-2 rotate-90"></i>
