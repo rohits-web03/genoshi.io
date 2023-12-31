@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { usageStatistics } from '../constants';
-import userLogo from "../assets/user.png";
-import AccountDetails from '../Components/Profile/AccountDetails';
+import React, { useState,useEffect } from 'react';
+import { usageStatistics } from '../../constants';
+import userLogo from "../../assets/user.png";
+import AccountDetails from './AccountDetails';
 
 interface UserDetails {
   name: string;
@@ -11,19 +11,17 @@ interface UserDetails {
 }
 
 interface Props {
-  closeModal: () => void;
-  isOpen:boolean;
+  closeAccSettings: () => void;
+  isAccSettings:boolean;
 }
 
-const AccountSettingsModal: React.FC<Props> = ({closeModal,isOpen}) => {
-  if(!isOpen) return null;
+const AccountSettingsModal: React.FC<Props> = ({closeAccSettings,isAccSettings}) => {
   const initialUserDetails: UserDetails = {
     name: 'John Doe',
     email: 'john@example.com',
     profilePhoto: userLogo,
     bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   };
-
   const [userDetails, setUserDetails] = useState<UserDetails>({ ...initialUserDetails });
   const [isEditing, setIsEditing] = useState(false);
   const [changePassword, setChangePassword] = useState(false);
@@ -33,6 +31,18 @@ const AccountSettingsModal: React.FC<Props> = ({closeModal,isOpen}) => {
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
+  useEffect(()=>{
+    setTimeout(()=>{
+      if(error!=''){
+        setError('')
+      }
+      if(successMessage!=''){
+        setSuccessMessage('')
+      }
+    },5000)
+  },[error,successMessage])
+
+  if(!isAccSettings) return null;
 
   const handleUpdateUserDetails = () => {
     // Logic to update user details (you can integrate API calls or update state directly)
@@ -50,9 +60,12 @@ const AccountSettingsModal: React.FC<Props> = ({closeModal,isOpen}) => {
       setNewPassword('');
       setConfirmNewPassword('');
     } else {
-      setError('Password change failed. Please check your input.');
+      setError('Password change failed. New Password and Confirm Password should be same');
       setSuccessMessage('');
       setChangePassword(false)
+      setOldPassword('');
+      setNewPassword('');
+      setConfirmNewPassword('');
     }
   };
 
@@ -60,7 +73,7 @@ const AccountSettingsModal: React.FC<Props> = ({closeModal,isOpen}) => {
     <div className="fixed inset-0 flex items-center justify-center font-inter bg-black bg-opacity-75 backdrop-blur-sm rounded-lg shadow-lg p-4">
       <div className="bg-white p-4 rounded-xl h-fit w-[60%] relative">
         <h1 className="flex justify-center items-center text-3xl font-semibold mt-2">Account Settings</h1>
-        <button className="bg-slate-300 text-white py-2 px-4 rounded-full mt-2 mr-2 absolute top-3 right-3" onClick={closeModal}>
+        <button className="bg-slate-300 text-white py-2 px-4 rounded-full mt-2 mr-2 absolute top-3 right-3" onClick={closeAccSettings}>
               <i className="fa-solid fa-xmark rotate-90 text-2xl text-black"></i>
         </button>
         <div className="p-6 text-lg pb-0">
@@ -90,23 +103,25 @@ const AccountSettingsModal: React.FC<Props> = ({closeModal,isOpen}) => {
               <p className="text-gray-800 mb-2">{userDetails.email}</p>
             )}
           </div>
-          {error && <p className="text-red-500">{error}</p>}
-          {successMessage && <p className="text-green-500">{successMessage}</p>}
+          <div className='flex justify-center items-center'>
+            {error && <p className="text-red-500">{error}</p>}
+            {successMessage && <p className="text-green-500">{successMessage}</p>}
+          </div>
           {isEditing ? (
             <div className="flex justify-center">
-              <button className="bg-blue-700 text-white py-2 px-4 rounded-lg mt-4 mr-2" onClick={handleUpdateUserDetails}>
+              <button className="bg-blue-700 hover:bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 mr-2" onClick={handleUpdateUserDetails}>
                 Save Changes
               </button>
-              <button className="bg-red-700 text-white py-2 px-4 rounded-lg mt-4" onClick={() => setIsEditing(false)}>
+              <button className="bg-red-700 hover:bg-red-500 text-white py-2 px-4 rounded-lg mt-4" onClick={() => setIsEditing(false)}>
                 Cancel
               </button>
             </div>
           ) : (
             <div className="flex justify-center">
-              <button className="bg-blue-700 text-white py-2 px-4 rounded-lg mt-4 mr-2" onClick={() => setIsEditing(true)}>
+              <button className="bg-blue-700 hover:bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 mr-2" onClick={() => setIsEditing(true)}>
                 Edit Details
               </button>
-              <button className="bg-blue-700 text-white py-2 px-4 rounded-lg mt-4" onClick={() => setChangePassword(true)}>
+              <button className="bg-blue-700 hover:bg-blue-500 text-white py-2 px-4 rounded-lg mt-4" onClick={() => setChangePassword(true)}>
                 Change Password
               </button>
             </div>
@@ -168,31 +183,49 @@ const AccountSettingsModal: React.FC<Props> = ({closeModal,isOpen}) => {
           </div>
         )}
 
-                   {/* Usage Statistics */}
-                   <div className="mt-6">
-              <h2 className="text-2xl font-semibold mb-4">Usage Statistics</h2>
-              <p>Total Usage: {usageStatistics.totalUsage}</p>
-              <p>Remaining Usage: {usageStatistics.remainingUsage}</p>
-              <p>Usage Percentage: {usageStatistics.usagePercentage}%</p>
-            </div>
+        {/* Usage Statistics */}
+        <div className="mt-6 px-4">
+          <h2 className="text-2xl font-semibold mb-4 flex flex-col justify-center items-start">Usage Statistics</h2>
+          <div className='flex justify-between items-center'>
+            <p>Total Usage:</p>
+            <p>{usageStatistics.totalUsage}</p>
+          </div>
+          <div className='flex justify-between items-center'>
+            <p>Remaining Usage:</p>
+            <p>{usageStatistics.remainingUsage}</p>
+          </div>
+          <div className='flex justify-between items-center'>
+            <p>Usage Percentage:</p>
+            <p>{usageStatistics.usagePercentage}%</p>
+          </div>
+        </div>
             
             {/* Third-party Services */}
-            <div className="mt-6 flex flex-col">
+            <div className="mt-6 flex flex-col px-4 pb-2">
               <h2 className="text-2xl font-semibold mb-4">Link Third-party Services</h2>
               <div className='flex justify-center items-center gap-4'>
               <div className="flex justify-between items-center">
                   <button className="rounded-lg text-white bg-blue-700 hover:bg-blue-500 p-2">
-                    <a href="#">Google</a>
+                    <a href="#" className='flex justify-center items-center gap-1'>
+                      <i className="fa-brands fa-google"></i>
+                      Google
+                    </a>
                   </button>
                 </div>
                 <div className="flex justify-between items-center">
                   <button className="rounded-lg text-white bg-blue-700 hover:bg-blue-500 p-2">
-                    <a href="#">Github</a>
+                    <a href="#" className='flex justify-center items-center gap-1'>
+                      <i className="fa-brands fa-github"></i>
+                      Github
+                    </a>
                   </button>
                 </div>
                 <div className="flex justify-between items-center">
                   <button className="rounded-lg text-white bg-blue-700 hover:bg-blue-500 p-2">
-                    <a href="#">Twitter</a>
+                    <a href="#" className='flex justify-center items-center gap-1'>
+                      <i className="fa-brands fa-square-x-twitter"></i>
+                      Twitter
+                    </a>
                   </button>
                 </div>
               </div>

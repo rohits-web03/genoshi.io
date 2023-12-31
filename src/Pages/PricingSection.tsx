@@ -33,13 +33,13 @@ const PricingSection: React.FC = () => {
             <h3 className='text-lg'>Our services are designed to cater to your specific needs and goals</h3>
             <div className='flex justify-center items-center gap-2 p-2'>
               <button
-                className={`text-md font-semibold ${selectedPeriod === 'monthly' ? 'bg-gray-400 rounded-lg px-2 py-1' : 'bg-[#eeeded] px-2 py-1 rounded-lg'}`}
+                className={`text-md font-semibold ${selectedPeriod === 'monthly' ? 'bg-gray-400 rounded-lg px-2 py-1' : 'bg-white px-2 py-1 rounded-lg'}`}
                 onClick={() => handlePeriodSelection('monthly')}
               >
                 Monthly
               </button>
               <button
-                className={`text-md font-semibold ${selectedPeriod === 'yearly' ? 'bg-gray-400 rounded-lg px-2 py-1' : 'bg-[#eeeded] px-2 py-1 rounded-lg'}`}
+                className={`text-md font-semibold ${selectedPeriod === 'yearly' ? 'bg-gray-400 rounded-lg px-2 py-1' : 'bg-white px-2 py-1 rounded-lg'}`}
                 onClick={() => handlePeriodSelection('yearly')}
               >
                 Yearly
@@ -65,7 +65,7 @@ const PricingSection: React.FC = () => {
             <div 
             id={selectedPlan}
             className="mt-8 p-10 border border-blue-500 rounded-lg shadow-lg 
-            md:w-[40%] flex flex-col bg-[#eeeded] justify-center"
+            md:w-[40%] flex flex-col bg-white justify-center"
             >
               <div className='flex justify-between items-center text-2xl'>
                 <h2 className="text-2xl font-semibold text-blue-500 mb-4">

@@ -17,7 +17,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, selected, timePeriod, h
   return (
     <label
       key={plan.id}
-      className={`block border rounded-xl overflow-hidden shadow-md p-10 cursor-pointer bg-[#eeeded] transform transition-transform duration-300 h-full ${
+      className={`block border rounded-xl overflow-hidden shadow-md p-10 cursor-pointer bg-white transform transition-transform duration-300 h-full ${
         selected ? 'border-blue-500 transform scale-105' : 'border-gray-300'
       } hover:shadow-lg hover:scale-105`}
       onClick={() => handlePlanSelection(plan.id)}
@@ -74,3 +74,5 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, selected, timePeriod, h
 };
 
 export default PricingCard;
+
+// bg-[#eeeded]

@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import userLogo from "../../assets/user.png";
 
 interface Props {
-  openModal: () => void;
+  openAccSettings: () => void;
 }
 
-const UserProfileDetails: React.FC<Props> = ({openModal}) => {
+const UserProfileDetails: React.FC<Props> = ({openAccSettings}) => {
   const user = {
     name: 'John Doe',
     email: 'john@example.com',
@@ -34,7 +34,7 @@ const UserProfileDetails: React.FC<Props> = ({openModal}) => {
         <div className='flex justify-center items-center gap-4'>
           <button className='rounded-lg text-white bg-blue-700 hover:bg-blue-500 p-2'><Link to="/profile/new-graph">New Graph</Link></button>
           <button 
-            onClick={openModal}
+            onClick={openAccSettings}
             className='flex justify-center items-center gap-1 rounded-lg text-white bg-blue-700 hover:bg-blue-500 p-2'
           >
             Settings

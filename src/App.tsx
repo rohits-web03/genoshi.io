@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PricingSection from './Pages/PricingSection';
 import ProfileDashboard from './Pages/ProfileDashboard';
 import CreateNewGraph from './Pages/CreateNewGraph';
+import Home from "./Pages/Home";
 
 const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
         <Routes>
+          <Route path="/" element={<Home />} />
           {/* Route for Pricing Section */}
           <Route path="/pricing" element={<PricingSection />} />
 
@@ -16,8 +18,6 @@ const App: React.FC = () => {
           <Route path="/profile">
             <Route index element={<ProfileDashboard />} />
             <Route path="/profile/new-graph" element={<CreateNewGraph />} />
-            {/* <Route path="/profile/graph_details" element={<GraphDetailsPage />} />
-            <Route path="/profile/settings" element={<AccountSettings />} /> */}
           </Route>
         </Routes>
       </div>

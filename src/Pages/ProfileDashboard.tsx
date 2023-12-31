@@ -5,62 +5,67 @@ import UsageMetrics from '../Components/Profile/UsageMetrics';
 import RecentActivityFeed from '../Components/Profile/RecentActivityFeed';
 import SavedGraphsList from '../Components/Profile/SavedGraphs';
 import { savedGraphsData } from '../constants';
-import GraphDetailsModal from './GraphDetailsPage';
-import AccountSettingsModal from './AccountSettings';
+import GraphDetailsModal from '../Components/Profile/GraphDetailsPage';
+import AccountSettingsModal from '../Components/Profile/AccountSettings';
 
 const ProfileDashboard: React.FC = () => {
-  const [isOpen,setItOpen]=useState<boolean>(false);
+  const [isDetailsOpen,setIsDetailsOpen]=useState<boolean>(false);
   const [index,setIndex]=useState<number>(0);
-  const [accModal,setAccModal]=useState<boolean>(false);
-  const closeModal=()=>{
+  const [isAccOpen,setIsAccOpen]=useState<boolean>(false);
+  const closeGraphDetailsModal=()=>{
     console.log("closing modal")
-      setItOpen(false);
+    setIsDetailsOpen(false);
+    console.log("isDetailsOpen:",isDetailsOpen,"acc modal",isAccOpen)
   }
-  const openModal = (value: number) => {
+  const openGraphDetailsModal = (value: number) => {
     console.log("opening modal");
     setIndex(value);
-    setAccModal(true);
+    setIsDetailsOpen(true);
+    console.log("isDetailsOpen:",isDetailsOpen,"acc modal",isAccOpen)
   };
 
-  const closeAccModal=()=>{
+  const closeAccSettingsModal=()=>{
     console.log("closing Acc modal")
-      setAccModal(false);
+    setIsAccOpen(false);
+    console.log("isDetailsOpen:",isDetailsOpen,"acc modal",isAccOpen)
   }
-  const openAccModal = () => {
+
+  const openAccSettingsModal = () => {
     console.log("opening Acc modal");
-    setAccModal(true);
+    setIsAccOpen(true);
+    console.log("isDetailsOpen:",isDetailsOpen,"acc modal",isAccOpen)
   };
   
   return (
       <div className="container mx-auto p-2 bg-[#e1e1e1] h-screen w-full">
         <div className='flex h-full gap-2'>
           <div className='flex flex-col w-[40%]'>
-            <UserProfileDetails openModal={openAccModal}/>
+            <UserProfileDetails openAccSettings={openAccSettingsModal}/>
             <AccountDetails settings={false}/>
             <RecentActivityFeed />
           </div>
           <div className='flex flex-col items-center w-[60%]'>
             <div className='flex flex-col justify-center items-center md:w-full bg-white rounded-lg h-[70%] mx-1'>
               <h3 className="text-xl font-semibold mb-1 text-center">Saved Graphs</h3>
-              <SavedGraphsList savedGraphs={savedGraphsData} openModal={openModal} />
+              <SavedGraphsList savedGraphs={savedGraphsData} openGraphDetails={openGraphDetailsModal} />
             </div>
             <div className='h-[30%] w-full'>
               <UsageMetrics />
             </div>
           </div>
         </div>
-        {isOpen && (
+        {isDetailsOpen && (
         <GraphDetailsModal
           graphDetails={savedGraphsData[index]}
-          closeModal={closeModal}
-          isOpen={isOpen}
+          closeGraphDetails={closeGraphDetailsModal}
+          isGraphDetails={isDetailsOpen}
         />
       )}
 
-      {accModal && (
+      {isAccOpen && (
         <AccountSettingsModal
-          closeModal={closeAccModal}
-          isOpen={accModal}
+          closeAccSettings={closeAccSettingsModal}
+          isAccSettings={isAccOpen}
         />
       )}
       </div>

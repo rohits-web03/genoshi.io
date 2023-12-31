@@ -1,11 +1,22 @@
-import React from 'react';
+import React,{useState} from 'react';
+import GraphPreview from '../Components/Profile/GraphPreview';
 
 const CreateNewGraph: React.FC = () => {
+  const [showGraph, setShowGraph] = useState<boolean>(false);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     console.log(e.target)
+    alert("Graph Created")
     // e.preventDefault();
     // Logic for handling form submission goes here
   };
+
+  const handleShowGraph=()=>{
+    setShowGraph(true);
+  }
+
+  const closeGraph=()=>{
+    setShowGraph(false)
+  }
 
   return (
     <div className="container mx-auto py-8 h-screen flex flex-col justify-center gap-10 ">
@@ -102,7 +113,13 @@ const CreateNewGraph: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex justify-end">
+            <div className="flex justify-end items-center gap-6">
+              <div
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                onClick={handleShowGraph}
+              >
+                Show Priview
+              </div>
               <button
                 type="submit"
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -114,6 +131,7 @@ const CreateNewGraph: React.FC = () => {
           </div>
         </form>
       </div>
+      <GraphPreview showGraph={showGraph} closeGraph={closeGraph}/>
     </div>
   );
 };
