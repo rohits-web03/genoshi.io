@@ -15,7 +15,7 @@ const UserProfileDetails: React.FC<Props> = ({openAccSettings}) => {
   };
 
   return (
-    <div className="flex flex-col justify-around items-center shadow-md rounded-lg p-6 md:w-full bg-white pb-2">
+    <div className="flex flex-col justify-around items-center shadow-md rounded-lg p-6 md:w-full bg-white dark:bg-[#4a4a4e] dark:text-white pb-2">
       <div className='flex justify-around items-center'>
         <div className="flex items-center justify-center  mr-6">
           <img
@@ -26,8 +26,8 @@ const UserProfileDetails: React.FC<Props> = ({openAccSettings}) => {
         </div>
         <div className="flex flex-col justify-center items-start">
           <h2 className="text-2xl font-semibold">{user.name}</h2>
-          <p className="text-gray-600 mt-1">{user.email}</p>
-          <p className="text-gray-700 mt-1">{user.bio}</p>
+          <p className="text-gray-600 dark:text-white mt-1">{user.email}</p>
+          <p className="text-gray-700 dark:text-white mt-1">{user.bio}</p>
         </div>
       </div>
       <div className='flex flex-col gap-4 p-2 mt-4'>

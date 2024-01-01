@@ -17,8 +17,8 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, selected, timePeriod, h
   return (
     <label
       key={plan.id}
-      className={`block border rounded-xl overflow-hidden shadow-md p-10 cursor-pointer bg-white transform transition-transform duration-300 h-full ${
-        selected ? 'border-blue-500 transform scale-105' : 'border-gray-300'
+      className={`block border rounded-xl overflow-hidden shadow-md p-10 cursor-pointer bg-white dark:bg-[#37373c] dark:text-white transform transition-transform duration-300 h-full ${
+        selected ? 'border-blue-500 dark:border-2 transform scale-105' : 'border-gray-300'
       } hover:shadow-lg hover:scale-105`}
       onClick={() => handlePlanSelection(plan.id)}
     >
@@ -30,25 +30,25 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, selected, timePeriod, h
         onChange={() => handlePlanSelection(plan.id)}
         className="hidden"
       />
-      <div className="mb-4">
+      <div className="mb-4 ">
         <h2 className="text-3xl font-semibold mb-1">{plan.planName}</h2>
         {timePeriod==="monthly"?
         <div className='mb-4'>
-          <p className="text-2xl font-semibold text-gray-900">{plan.monthlyPrice}</p>
+          <p className="text-2xl font-semibold text-gray-900 dark:text-white">{plan.monthlyPrice}</p>
           {plan.planName!='Enterprise Plan'?
             <div>
-              <p className="text-xl text-gray-900">Per Month</p>
-              <p className="text-lg text-gray-900">Per user</p>
+              <p className="text-xl text-gray-900 dark:text-white">Per Month</p>
+              <p className="text-lg text-gray-900 dark:text-white">Per user</p>
             </div>
             :null
           }
         </div>:
         <div className='mb-4'>
-          <p className="text-2xl font-semibold text-gray-900">{plan.yearlyPrice}</p>
+          <p className="text-2xl font-semibold text-gray-900 dark:text-white">{plan.yearlyPrice}</p>
           {plan.planName!='Enterprise Plan'?
             <div>
-              <p className="text-xl text-gray-900">Per Year</p>
-              <p className="text-lg text-gray-900">Per user</p>
+              <p className="text-xl text-gray-900 dark:text-white">Per Year</p>
+              <p className="text-lg text-gray-900 dark:text-white">Per user</p>
             </div>
             :null
           }

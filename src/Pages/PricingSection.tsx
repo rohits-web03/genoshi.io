@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import PricingCard from '../Components/Pricing/PricingCard';
 import { plans } from '../constants';
+import { useTheme } from '../Contexts/theme';
 
 const PricingSection: React.FC = () => {
+  const {theme,toggleTheme}=useTheme();
   const [selectedPlan, setSelectedPlan] = useState<string>(''); 
   const [selectedPeriod, setSelectedPeriod] = useState<string>('monthly');
 
@@ -25,7 +27,16 @@ const PricingSection: React.FC = () => {
   const selectedPlanData = plans.find((plan) => plan.id === selectedPlan);
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-[#e1e1e1] font-inter">
+    <div className="relative flex flex-col justify-center items-center h-screen bg-[#e1e1e1] font-inter dark:bg-[#0c0c1c] dark:text-white">
+            <button 
+              className="bg-yellow-300 rounded-full rotate-90 absolute top-6 right-10"
+              onClick={toggleTheme}
+            >
+              {theme==='dark'?
+              <i className="fa-solid fa-moon p-4 text-2xl rotate-[270deg]"></i>:
+              <i className="fa-solid fa-sun p-4 text-2xl"></i>
+              }
+            </button> 
       <div className="container mx-auto py-8 px-8 overflow-auto">
         <div className='flex flex-col justify-center items-center gap-4 my-4 text-center mb-10'>
             <span className='bg-blue-200 rounded-lg px-1 text-blue-700'>Pricing</span>
@@ -33,13 +44,13 @@ const PricingSection: React.FC = () => {
             <h3 className='text-lg'>Our services are designed to cater to your specific needs and goals</h3>
             <div className='flex justify-center items-center gap-2 p-2'>
               <button
-                className={`text-md font-semibold ${selectedPeriod === 'monthly' ? 'bg-gray-400 rounded-lg px-2 py-1' : 'bg-white px-2 py-1 rounded-lg'}`}
+                className={`text-md font-semibold ${selectedPeriod === 'monthly' ? 'bg-gray-400 dark:bg-slate-500 rounded-lg px-2 py-1' : 'bg-white dark:bg-slate-400 px-2 py-1 rounded-lg'}`}
                 onClick={() => handlePeriodSelection('monthly')}
               >
                 Monthly
               </button>
               <button
-                className={`text-md font-semibold ${selectedPeriod === 'yearly' ? 'bg-gray-400 rounded-lg px-2 py-1' : 'bg-white px-2 py-1 rounded-lg'}`}
+                className={`text-md font-semibold ${selectedPeriod === 'yearly' ? 'bg-gray-400 dark:bg-slate-500 rounded-lg px-2 py-1' : 'bg-white dark:bg-slate-400 px-2 py-1 rounded-lg'}`}
                 onClick={() => handlePeriodSelection('yearly')}
               >
                 Yearly
@@ -64,8 +75,8 @@ const PricingSection: React.FC = () => {
           {selectedPlanData && (
             <div 
             id={selectedPlan}
-            className="mt-8 p-10 border border-blue-500 rounded-lg shadow-lg 
-            md:w-[40%] flex flex-col bg-white justify-center relative"
+            className="mt-8 p-10 border border-blue-500 dark:border-2 rounded-lg shadow-lg 
+            md:w-[40%] flex flex-col bg-white justify-center relative dark:bg-[#37373c] dark:text-white"
             >
               <div className='flex justify-between items-center text-2xl gap-4'>
                 <h2 className="text-2xl font-semibold text-blue-500 mb-4">
@@ -75,10 +86,10 @@ const PricingSection: React.FC = () => {
                   className='absolute top-4 right-4'
                   onClick={handleUnselect}
                 >
-                  <i className="fa-solid fa-xmark bg-slate-600 rounded-full p-2 rotate-90"></i>
+                  <i className="fa-solid fa-xmark bg-slate-400  rounded-full p-2 rotate-90"></i>
                 </button>
               </div>
-              <div className="text-gray-700">
+              <div className="text-gray-700 dark:text-white">
                 {selectedPeriod==="monthly"?
                 <div className='flex gap-2 items-center'>
                   <p className="mb-2 text-2xl">{selectedPlanData.monthlyPrice}</p>

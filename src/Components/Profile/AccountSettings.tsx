@@ -71,23 +71,23 @@ const AccountSettingsModal: React.FC<Props> = ({closeAccSettings,isAccSettings})
 
   return (
     <div className="fixed inset-0 flex items-center justify-center font-inter bg-black bg-opacity-75 backdrop-blur-sm rounded-lg shadow-lg p-4">
-      <div className="bg-white p-4 rounded-xl h-fit md:w-[60%] lg:w-[50%] xl:w-[40%] relative">
+      <div className="bg-white dark:bg-[#0c0c1c] dark:text-white p-4 rounded-xl h-fit md:w-[60%] lg:w-[50%] xl:w-[40%] relative">
         <h1 className="flex justify-center items-center text-3xl font-semibold mt-2">Account Settings</h1>
-        <button className="bg-slate-300 text-white py-2 px-4 rounded-full mt-2 mr-2 absolute top-3 right-3" onClick={closeAccSettings}>
+        <button className="bg-slate-300 text-white py-2 px-4 rounded-full mt-2 mr-2 absolute top-0 right-3" onClick={closeAccSettings}>
               <i className="fa-solid fa-xmark rotate-90 text-2xl text-black"></i>
         </button>
-        <div className="p-6 text-lg pb-0">
+        <div className="p-6 text-lg pb-2 dark:bg-[#4a4a4e] dark:text-white dark:rounded-lg">
           <div className="flex justify-between">
             <p>Name:</p>
             {isEditing ? (
               <input
                 type="text"
                 value={userDetails.name}
-                className="border rounded-md px-2 py-1 bg-gray-200 mb-2"
+                className="border rounded-md px-2 py-1 bg-gray-200 mb-2 dark:bg-[#3f3f41] dark:text-white"
                 onChange={(e) => setUserDetails({ ...userDetails, name: e.target.value })}
               />
             ) : (
-              <p className="text-gray-800 mb-2">{userDetails.name}</p>
+              <p className="text-gray-800 dark:text-white mb-2">{userDetails.name}</p>
             )}
           </div>
           <div className="flex justify-between">
@@ -96,11 +96,11 @@ const AccountSettingsModal: React.FC<Props> = ({closeAccSettings,isAccSettings})
               <input
                 type="text"
                 value={userDetails.email}
-                className="border rounded-md px-2 py-1 bg-gray-200"
+                className="border rounded-md px-2 py-1 bg-gray-200 dark:bg-[#3f3f41] dark:text-white"
                 onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })}
               />
             ) : (
-              <p className="text-gray-800 mb-2">{userDetails.email}</p>
+              <p className="text-gray-800 dark:text-white mb-2">{userDetails.email}</p>
             )}
           </div>
           <div className='flex justify-center items-center'>
@@ -135,7 +135,7 @@ const AccountSettingsModal: React.FC<Props> = ({closeAccSettings,isAccSettings})
         {/* Change Password Modal */}
         {changePassword && (
           <div className="edit-modal-overlay fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
-            <div className="edit-modal bg-white rounded-lg shadow-lg p-4">
+            <div className="edit-modal bg-white dark:bg-[#0c0c1c] dark:text-white rounded-lg shadow-lg p-4">
               <h2 className="text-lg font-semibold mb-4">Change Password</h2>
               <label className="block mb-2" htmlFor="oldPassword">
                 Old Password:
@@ -144,7 +144,7 @@ const AccountSettingsModal: React.FC<Props> = ({closeAccSettings,isAccSettings})
                   id="oldPassword"
                   value={oldPassword}
                   onChange={(e) => setOldPassword(e.target.value)}
-                  className="border rounded-md px-2 py-1 w-full"
+                  className="border rounded-md px-2 py-1 w-full dark:bg-[#3f3f41] dark:text-white"
                 />
               </label>
               <label className="block mb-2" htmlFor="newPassword">
@@ -154,7 +154,7 @@ const AccountSettingsModal: React.FC<Props> = ({closeAccSettings,isAccSettings})
                   id="newPassword"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className="border rounded-md px-2 py-1 w-full"
+                  className="border rounded-md px-2 py-1 w-full dark:bg-[#3f3f41] dark:text-white"
                 />
               </label>
               <label className="block mb-2" htmlFor="confirmNewPassword">
@@ -164,7 +164,7 @@ const AccountSettingsModal: React.FC<Props> = ({closeAccSettings,isAccSettings})
                   id="confirmNewPassword"
                   value={confirmNewPassword}
                   onChange={(e) => setConfirmNewPassword(e.target.value)}
-                  className="border rounded-md px-2 py-1 w-full"
+                  className="border rounded-md px-2 py-1 w-full dark:bg-[#3f3f41] dark:text-white"
                 />
               </label>
               <button
@@ -184,7 +184,7 @@ const AccountSettingsModal: React.FC<Props> = ({closeAccSettings,isAccSettings})
         )}
 
         {/* Usage Statistics */}
-        <div className="mt-6 px-4">
+        <div className="mt-2 px-4 dark:bg-[#4a4a4e] dark:text-white dark:rounded-lg py-1">
           <h2 className="text-2xl font-semibold mb-4 flex flex-col justify-center items-start">Usage Statistics</h2>
           <div className='flex justify-between items-center'>
             <p>Total Usage:</p>
@@ -201,7 +201,7 @@ const AccountSettingsModal: React.FC<Props> = ({closeAccSettings,isAccSettings})
         </div>
             
             {/* Third-party Services */}
-            <div className="mt-6 flex flex-col px-4 pb-2">
+            <div className="mt-2 flex flex-col px-4 py-3 dark:bg-[#4a4a4e] dark:text-white dark:rounded-lg">
               <h2 className="text-2xl font-semibold mb-4">Link Third-party Services</h2>
               <div className='flex justify-center items-center gap-4'>
               <div className="flex justify-between items-center">

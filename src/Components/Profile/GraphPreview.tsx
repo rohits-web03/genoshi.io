@@ -17,7 +17,7 @@ const GraphPreview:React.FC<GraphPreviewProps> = ({showGraph,closeGraph}) => {
                 alt='Demo Knowledge Graph'
               />
               <button className='bg-white rounded-full absolute top-6 right-7' onClick={closeGraph}>
-                <i className="fa-solid fa-x text-xl"></i>
+                <i className="fa-solid fa-x text-xl dark:bg-gray-400 dark:rounded-full dark:p-2 dark:rotate-90"></i>
               </button>
             </div>
         </div>

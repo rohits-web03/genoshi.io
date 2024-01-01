@@ -25,16 +25,16 @@ const recentActivities: Activity[] = [
 
 const RecentActivityFeed: React.FC = () => {
   return (
-    <div className="bg-white p-4 pt-6 rounded-md shadow mt-2">
+    <div className="bg-white p-4 pt-6 h-[42%] rounded-md shadow mt-2 dark:bg-[#4a4a4e] dark:text-white">
       <div className='flex justify-between'>
         <h2 className="text-2xl font-semibold mb-4">Recent Activity</h2>
-        <p className='text-right text-gray-800'>With last 7 days</p>
+        <p className='text-right text-gray-800 dark:text-white'>With last 7 days</p>
       </div>
-      <div className='p-4 bg-slate-100 overflow-y-auto h-[40%] max-sm:h-[55%]'>
+      <div className='p-4 bg-slate-100 overflow-y-auto h-[70%] rounded-lg max-sm:h-[85%] dark:bg-[#626264] dark:text-white'>
         {recentActivities.map((activity, index) => (
-          <div key={index} className="flex items-center justify-between p-2 hover:bg-slate-300 rounded-lg">
+          <div key={index} className="flex items-center justify-between p-2 hover:bg-slate-300 dark:hover:bg-[#49494c] rounded-lg">
             <p className="text-md">{activity.description}</p>
-            <p className="text-sm text-gray-500">{activity.timestamp}</p>
+            <p className="text-sm text-gray-500 dark:text-white">{activity.timestamp}</p>
           </div>
         ))}
       </div>

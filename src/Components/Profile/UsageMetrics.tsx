@@ -7,13 +7,13 @@ interface usageBox {
 }
 
 const UsageBox: React.FC<usageBox>=({parameter,value,icon})=>(
-  <div className="flex justify-center items-start gap-2 max-md:w-full w-[33.33%] h-[90%] rounded-md border-black border p-2 pl-4">
+  <div className="flex justify-center items-start gap-2 max-md:w-full dark:bg-[#646466] w-[33.33%] h-[90%] rounded-md border-black border p-2 pl-4">
     <div className='flex justify-center items-center h-full'>
       <i className={`${icon} text-2xl`}></i>
     </div>
     <div className='flex flex-col justify-center items-start w-full h-full'>
-      <p className="text-gray-900 font-semibold text-2xl">{value}</p>
-      <p className="text-gray-700 text-lg">{parameter}</p>
+      <p className="text-gray-900 dark:text-white font-semibold text-2xl">{value}</p>
+      <p className="text-gray-700 dark:text-white text-lg">{parameter}</p>
     </div>
   </div>
 )
@@ -27,7 +27,7 @@ const UsageMetrics: React.FC = () => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 h-full w-full m-1">
+    <div className="bg-white shadow-md rounded-lg p-6 h-full w-full m-1 dark:bg-[#4a4a4e] dark:text-white">
       <h2 className="text-2xl font-semibold mb-4">Usage Metrics</h2>
       <div className='flex justify-around w-full h-[80%] gap-2 max-sm:flex-col'>
         <UsageBox parameter='Graphs Created' value={usageData.graphsCreated} icon='fa-solid fa-chart-simple'/>

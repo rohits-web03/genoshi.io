@@ -56,8 +56,8 @@ const EditGraphModal:React.FC<EditModalProps>=({graphDetails,isEditing,closeEdit
     };
   
       return (
-        <div className="edit-modal-overlay fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
-          <div className="edit-modal bg-white rounded-lg shadow-lg p-4">
+        <div className="edit-modal-overlay fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-60">
+          <div className="edit-modal bg-white dark:bg-[#0c0c1c] dark:text-white rounded-lg shadow-lg p-4">
             <h2 className="text-lg font-semibold mb-4">Edit Graph</h2>
             <label className="block mb-2" htmlFor="title">
               Title:
@@ -67,7 +67,7 @@ const EditGraphModal:React.FC<EditModalProps>=({graphDetails,isEditing,closeEdit
                 name="title"
                 value={updatedDetails.title}
                 onChange={handleInputChange}
-                className="border rounded-md px-2 py-1 w-full"
+                className="border rounded-md px-2 py-1 w-full dark:bg-[#3f3f41] dark:text-white"
               />
             </label>
             <label className="block mb-2" htmlFor="description">
@@ -78,7 +78,7 @@ const EditGraphModal:React.FC<EditModalProps>=({graphDetails,isEditing,closeEdit
                 name="description"
                 value={updatedDetails.description}
                 onChange={handleInputChange}
-                className="border rounded-md px-2 py-1 w-full"
+                className="border rounded-md px-2 py-1 w-full dark:bg-[#3f3f41] dark:text-white"
               />
             </label>
             <label className="block mb-2" htmlFor="date_created">
@@ -89,7 +89,7 @@ const EditGraphModal:React.FC<EditModalProps>=({graphDetails,isEditing,closeEdit
                 name="dateCreated"
                 value={updatedDetails.dateCreated}
                 onChange={handleInputChange}
-                className="border rounded-md px-2 py-1 w-full"
+                className="border rounded-md px-2 py-1 w-full dark:bg-[#3f3f41] dark:text-white"
               />
             </label>
               <label className="block mb-2" htmlFor="papers">
@@ -100,7 +100,7 @@ const EditGraphModal:React.FC<EditModalProps>=({graphDetails,isEditing,closeEdit
                     key={i}
                     value={paper}
                     onChange={(e) => handlePaperChange(e, i)}
-                    className="border rounded-md px-2 py-1 w-full mb-2"
+                    className="border rounded-md px-2 py-1 w-full mb-2 dark:bg-[#3f3f41] dark:text-white"
                   />
                 ))}
               </label>

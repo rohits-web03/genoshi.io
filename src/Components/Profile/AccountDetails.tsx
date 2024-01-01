@@ -10,14 +10,14 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({settings}) => {
   const plan={...plans[1],status:"Active"};
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 mt-2">
+    <div className="bg-white shadow-md rounded-lg p-6 mt-2 dark:bg-[#4a4a4e] dark:text-white">
       <h2 className="text-2xl font-semibold mb-4">Subscription Details</h2>
       <div className="flex justify-between items-center">
-        <p className="text-gray-700">Current Plan:</p>
-        <p className="text-gray-900 font-semibold">{plan.planName}</p>
+        <p className="text-gray-700 dark:text-white">Current Plan:</p>
+        <p className="text-gray-900 dark:text-white font-semibold">{plan.planName}</p>
       </div>
       <div className='flex justify-between mt-2'>
-        <p className='text-gray-700'>Features:</p>
+        <p className='text-gray-700 dark:text-white'>Features:</p>
         <div className=''>
           {plan.features.map((feature)=>(
             <p className='text-right' key={feature}>{feature}</p>
@@ -25,7 +25,7 @@ const AccountDetails: React.FC<AccountDetailsProps> = ({settings}) => {
         </div>
       </div>
       <div className="flex justify-between items-center mt-2">
-        <p className="text-gray-700">Status:</p>
+        <p className="text-gray-700 dark:text-white">Status:</p>
         <p className={`text-${plan.status === 'Active' ? 'green' : 'red'}-500 font-semibold`}>
           {plan.status}
         </p>

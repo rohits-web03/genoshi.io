@@ -41,27 +41,28 @@ const GraphDetailsModal: React.FC<Props> = ({ graphDetails, closeGraphDetails, i
   // console.log("Details:",graphDetails,"Updated Details:",updatedDetails)
   
   return (
-    <div className="fixed inset-0 flex items-center justify-center font-inter bg-black bg-opacity-75 backdrop-blur-sm rounded-lg shadow-lg p-4">
-      <div className="bg-white p-4 rounded-xl h-fit md:w-[45%] lg:w-[40%] relative">
+    <div className="fixed inset-0 flex items-center justify-center font-inter 
+    bg-black bg-opacity-75 backdrop-blur-sm rounded-lg shadow-lg p-4">
+      <div className="bg-white p-4 rounded-xl h-fit md:w-[45%] lg:w-[40%] relative dark:bg-[#4a4a4e] dark:text-white">
         <h1 className='flex justify-center items-center text-3xl font-semibold mt-2'>Graph Details</h1>
         <div className='p-6 text-lg pb-0'>
           <div className='flex justify-between'>
             <p>Title:</p>
-            <p className="text-xl font-semibold mb-2 text-gray-800">{graphDetails.title}</p>
+            <p className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">{graphDetails.title}</p>
           </div>
           <div className='flex justify-between'>
             <p>Description:</p>
-            <p className="text-gray-800 mb-2">{graphDetails.description}</p>
+            <p className="text-gray-800 dark:text-white mb-2">{graphDetails.description}</p>
           </div>
           <div className='flex justify-between'>
             <p>Date Created:</p>
-            <p className="text-gray-800 mb-2">Created on: {graphDetails.dateCreated}</p>
+            <p className="text-gray-800 dark:text-white mb-2">Created on: {graphDetails.dateCreated}</p>
           </div>
           <div className='flex justify-between'>
             <p>Papers Used:</p>
             <div className='flex flex-col gap-1 justify-around items-center'>
               {graphDetails.papers.map((paper)=>(
-                  <p className='text-gray-800 mb-1' key={paper}>{paper}</p>
+                  <p className='text-gray-800 dark:text-white mb-1' key={paper}>{paper}</p>
               ))}
             </div>
           </div>

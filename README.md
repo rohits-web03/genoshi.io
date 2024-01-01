@@ -8,7 +8,7 @@ This repository contains a React application scaffolded with Vite, written in Ty
 
 # Project Overview
 
-This project contains the required two pages.
+This project contains the required two pages.It's mobile responsive and has light theme and dark theme.Default theme is according to system preference.The screenshots below are from light theme.
 
 After starting the server:
 
